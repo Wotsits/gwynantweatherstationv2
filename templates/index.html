@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="gridcontainer">
+      
+        <div id="grid1" class="griditem1 griditem selectablegriditem">
+          <a href="/metweather">
+              <img class="scanme" src="static/images/weatherscan.png">
+              <img class="touchme" src="static/images/touchme.png">
+              <h2 class="itemtitle">Current Weather</h2>
+            {% if currentconditions == 'NA' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/001-cloud.svg">
+            {% endif %}
+            {% if currentconditions == '0' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/024-night-4.svg">
+            {% endif %}
+            {% if currentconditions == '1' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/039-sun.svg">
+            {% endif %}
+            {% if currentconditions == '2' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/002-cloud-1.svg">
+            {% endif %}
+            {% if currentconditions == '3' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/038-cloudy-3.svg">
+            {% endif %}
+            {% if currentconditions == '4' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/001-cloud.svg">
+            {% endif %}
+            {% if currentconditions == '5' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/017-foog.svg">
+            {% endif %}
+            {% if currentconditions == '6' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/017-foog.svg">
+            {% endif %}
+            {% if currentconditions == '7' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/001-cloud.svg">
+            {% endif %}
+            {% if currentconditions == '8' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/001-cloud.svg">
+            {% endif %}
+            {% if currentconditions == '9' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/021-night-2.svg">
+            {% endif %}
+            {% if currentconditions == '10' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/034-cloudy-1.svg">
+            {% endif %}
+            {% if currentconditions == '11' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/003-rainy.svg">
+            {% endif %}
+            {% if currentconditions == '12' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/003-rainy.svg">
+            {% endif %}
+            {% if currentconditions == '13' %}
+              <img class="homeweatherimage" src="static/images/homeweathericons/004-rainy-1.svg">
+            {% endif %}
+            {% if currentconditions == '14' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/004-rainy-1.svg">
+            {% endif %}
+            {% if currentconditions == '15' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/004-rainy-1.svg">
+            {% endif %}
+            {% if currentconditions == '16' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/012-snowy-1.svg">
+            {% endif %}
+            {% if currentconditions == '17' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/012-snowy-1.svg">
+            {% endif %}
+            {% if currentconditions == '18' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/012-snowy-1.svg">
+            {% endif %}
+            {% if currentconditions == '19' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/005-hail.svg">
+            {% endif %}
+            {% if currentconditions == '20' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/005-hail.svg">
+            {% endif %}
+            {% if currentconditions == '21' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/005-hail.svg">
+            {% endif %}
+            {% if currentconditions == '22' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/019-night-1.svg">
+            {% endif %}
+            {% if currentconditions == '23' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/035-snowy-2.svg">
+            {% endif %}
+            {% if currentconditions == '24' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/006-snowy.svg">
+            {% endif %}
+            {% if currentconditions == '25' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/031-snowflake.svg">
+            {% endif %}
+            {% if currentconditions == '26' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/031-snowflake.svg">
+            {% endif %}
+            {% if currentconditions == '27' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/031-snowflake.svg">
+            {% endif %}
+            {% if currentconditions == '28' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/020-storm-3.svg">
+            {% endif %}
+            {% if currentconditions == '29' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/036-storm-4.svg">
+            {% endif %}
+            {% if currentconditions == '30' %}
+            <img class="homeweatherimage" src="static/images/homeweathericons/008-storm.svg">
+            {% endif %}
+            <p>{{currenttemp}}&degc</p>
+            <p>Wind: {{currentwind}}mph with gusts of up to {{currentgusts}}mph</p>
+          <h4 class="itemsubtitle">Forecast:</h4>
+          <p>{{weather.get("Weather")}}</p>
+        </a>
+      </div>
+  
+      
+      <div class="griditem2 griditem selectablegriditem">
+        <a href="/mountain">
+          <div class="scanme">
+            <img src="static/images/mountainscan.png">
+          </div>
+          <div class="touchme">
+            <img src="static/images/touchme.png">
+          </div>
+          
+            <h2 class="itemtitle">Mountain Weather Summary</h2>
+            <p>"<em>{{weather.get("View")[:150] + "..."}}</em>"</p>
+          
+        </a>
+      </div>
+
+      <div class="griditem3 griditem">
+        <h2 class="itemtitle">Weather Alert Level</h2>
+        <ul>
+          {% if not weatheralerts|length == 0 %}
+          {% for item in weatheralerts %}
+            <li>{{item.get("event")}}</li>
+          {% endfor %}
+        {% else %}
+          <li>There are no weather warnings currently in place</li>
+        {% endif %}
+        </ul>
+        
+      </div>
+      
+      <div class="griditem4 griditem">
+        <h2 class="itemtitle">News Summary</h2>
+        {% for item in newsfeed %}
+        <p>{{item.text}}</p>
+        {% endfor %}
+      </div>
+
+      <div class="griditem5 griditem">
+        <h2 class="itemtitle">River Levels</h2>
+        {% if floodrisk.get('SEVERITY') == "No warnings or alerts" %}
+          <p>The Glaslyn river is currently:</p>
+          <p class="center">{{level[0].get("latestValue")}}</p>
+          <p class="center">{{level[0].get("parameterStatusEN")}}</p>
+        {% else: %}
+          <p>{{floodrisk.get('SEVERITY')}} for the Glaslyn River</p>
+        {% endif %}
+      </div>
+
+      <div class="griditem6 griditem center">
+        <h2 class="itemtitle gridtitle">Llyn Gwynant Campsite Weather Station</h2>
+      </div>
+
+  </div>
+
+
+{% endblock %}
+

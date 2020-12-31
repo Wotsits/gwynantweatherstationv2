@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="page-container mountain">
+
+        <h1 class="page-title">Mountain Weather Forescast</h1>
+
+        <div class="backlink">
+            <a href="/">Return to summary</a>
+        </div>  
+
+        <div class="textbackground">
+            <nav class="mountainweathernav">
+                <ul>
+                    <li onclick="myFunction1()">{{navlist[0]}}</li>
+                    <li class="seperator">|</li>
+                    <li onclick="myFunction2()">{{navlist[1]}}</li>
+                    <li class="seperator">|</li>
+                    <li onclick="myFunction3()">{{navlist[2]}}</li>
+                </ul>
+            </nav>
+        
+        <div id="panel1" class="panel">
+            <h3>Headline:</h3>
+            <p>{{ mountainforecast.get("Days").get("Day")[0].get("Headline") }}</p>
+            <h3>Confidence:</h3>
+            <p>{{ mountainforecast.get("Days").get("Day")[0].get("Confidence") }}</p>
+            <h3>Meterologist's View:</h3>
+            <p>{{ mountainforecast.get("Days").get("Day")[0].get("View") }}</p>
+            <h3>Weather:</h3>
+            <p>{{ mountainforecast.get("Days").get("Day")[0].get("Weather") }}</p>
+            <h3>Chance of a cloudfree summit:</h3>
+            <p>{{ mountainforecast.get("Days").get("Day")[0].get("CloudFreeHillTop") }}</p>
+            <h3>Visibility:</h3>
+            <p>{{ mountainforecast.get("Days").get("Day")[0].get("Visibility") }}</p>
+        </div>
+        <div id="panel2" class="panel">
+            <h3>Weather:</h3>
+            <p>{{ mountainforecast.get("Days").get("Day")[1].get("Weather") }}</p>
+            <h3>Wind:</h3>
+            <p>{{ mountainforecast.get("Days").get("Day")[1].get("Wind") }}</p>
+            <h3>Hill cloud:</h3>
+            <p>{{ mountainforecast.get("Days").get("Day")[1].get("HillCloud") }}</p>
+            <h3>Visibility:</h3>
+            <p>{{ mountainforecast.get("Days").get("Day")[1].get("Visibility") }}</p>
+            <h3>Freezing Level:</h3>
+            <p>{{ mountainforecast.get("Days").get("Day")[1].get("Temperature").get("Freezing") }}</p>
+        </div>
+        <div id="panel3" class="panel">
+            <h3>Summary:</h3>
+            <p>{{ mountainforecast.get("Days").get("Day")[2].get("Summary") }}</p>
+        </div>
+
+    </div>
+
+    <script>
+        function myFunction1() {
+            var x = document.getElementById("panel1");
+            var y = document.getElementById("panel2");
+            var z = document.getElementById("panel3");
+            if (window.getComputedStyle(x).display === "none") {
+                x.style.display = "block";
+            }
+            if (window.getComputedStyle(y).display === "block") {
+                y.style.display = "none";
+            }
+            if (window.getComputedStyle(z).display === "block") {
+                z.style.display = "none";
+            }
+        }
+        function myFunction2() {
+            var x = document.getElementById("panel1");
+            var y = document.getElementById("panel2");
+            var z = document.getElementById("panel3");
+            if (window.getComputedStyle(x).display === "block") {
+                x.style.display = "none";
+            }
+            if (window.getComputedStyle(y).display === "none") {
+                y.style.display = "block";
+            }
+            if (window.getComputedStyle(z).display === "block") {
+                z.style.display = "none";
+            }
+        }
+        function myFunction3() {
+            var x = document.getElementById("panel1");
+            var y = document.getElementById("panel2");
+            var z = document.getElementById("panel3");
+            if (window.getComputedStyle(x).display === "block") {
+                x.style.display = "none";
+            }
+            if (window.getComputedStyle(y).display === "block") {
+                y.style.display = "none";
+            }
+            if (window.getComputedStyle(z).display === "none") {
+                z.style.display = "block";
+            }
+        }
+    </script>
+
+{% endblock %}

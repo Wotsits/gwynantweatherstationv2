@@ -1,0 +1,233 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <div class="page-container">
+
+        <h1 class="page-title">Weather Summary</h1>
+        <div class="backlink"> 
+            <a href="/">Return to summary</a>
+        </div>
+        <table class="table table-striped">
+            
+            {% for item in rawdata: %}
+            
+                <tr class="tablegroup">
+                    <td>{{ item.get("value") }}</td>
+                    <td class="hideme"></td>
+                    <td></td>
+                    <td class="hideme"></td>
+                    <td></td>
+                    <td></td>
+                    <td class="hideme"></td>
+                    <td class="hideme"></td>
+                </tr>
+        
+                <th scope="col">Time</th>
+                <th scope="col" class="hideme"><img class = "tableicon" src="static/images/weathericons/044-warm-1.svg"></th>
+                <th scope="col">Feels Like</th>
+                <th scope="col"></th>
+                <th scope="col" class="hideme"><img class = "tableicon" src="static/images/weathericons/049-windy-2.svg"></th>
+                <th scope="col">Gusting</th>
+                
+                <th scope="col" class="hideme"><img class = "tableicon" src="static/images/weathericons/014-compass.svg"></th>
+                <th scope="col" class="hideme">Visibility</th>
+                
+                {% for line in item.get("Rep"): %}
+                <tr>
+                   
+                    <td>
+                        {% if line.get("$") == '0': %}
+                            00:00
+                        {% elif line.get("$") == '180': %}
+                            03:00
+                        {% elif line.get("$") == '360': %}
+                            06:00    
+                        {% elif line.get("$") == '540': %}
+                            09:00
+                        {% elif line.get("$") == '720': %}
+                            12:00
+                        {% elif line.get("$") == '900': %}
+                            15:00
+                        {% elif line.get("$") == '1080': %}
+                            18:00
+                        {% elif line.get("$") == '1260': %}
+                            21:00
+                        {% endif %}
+                    </td>
+                    <td class="hideme">{{ line.get("T") }}&degc</td>
+                    <td>{{ line.get("F") }}&degc</td>
+                    <td>
+                        {% if line.get("W") == 'NA': %}
+                        Not available
+                        {% endif %}
+
+                        {% if line.get("W") == '0': %}
+                        <img class="tableicon" src="static/images/weathericons/024-night-4.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '1': %}
+                        <img class="tableicon" src="static/images/weathericons/039-sun.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '2': %}
+                        <img class="tableicon" src="static/images/weathericons/002-cloud-1.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '3': %}
+                        <img class="tableicon" src="static/images/weathericons/038-cloudy-3.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '4': %}
+                        Not used
+                        {% endif %}
+                        
+                        {% if line.get("W") == '5': %}
+                        <img class="tableicon" src="static/images/weathericons/017-foog.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '6': %}
+                        <img class="tableicon" src="static/images/weathericons/017-foog.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '7': %}
+                        <img class="tableicon" src="static/images/weathericons/001-cloud.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '8': %}
+                        <img class="tableicon" src="static/images/weathericons/001-cloud.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '9': %}
+                        <img class="tableicon" src="static/images/weathericons/021-night-2.svg">
+                        {% endif %}
+                        
+                        
+                        {% if line.get("W") == '10': %}
+                        <img class="tableicon" src="static/images/weathericons/034-cloudy-1.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '11': %}
+                        <img class="tableicon" src="static/images/weathericons/003-rainy.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '12': %}
+                        <img class="tableicon" src="static/images/weathericons/003-rainy.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '13': %}
+                        <img class="tableicon" src="static/images/weathericons/004-rainy-1.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '14': %}
+                        <img class="tableicon" src="static/images/weathericons/004-rainy-1.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '15': %}
+                        <img class="tableicon" src="static/images/weathericons/004-rainy-1.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '16': %}
+                        <img class="tableicon" src="static/images/weathericons/012-snowy-1.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '17': %}
+                        <img class="tableicon" src="static/images/weathericons/012-snowy-1.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '18': %}
+                        <img class="tableicon" src="static/images/weathericons/012-snowy-1.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '19': %}
+                        <img class="tableicon" src="static/images/weathericons/005-hail.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '20': %}
+                        <img class="tableicon" src="static/images/weathericons/005-hail.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '21': %}
+                        <img class="tableicon" src="static/images/weathericons/005-hail.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '22': %}
+                        <img class="tableicon" src="static/images/weathericons/019-night-1.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '23': %}
+                        <img class="tableicon" src="static/images/weathericons/035-snowy-2.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '24': %}
+                        <img class="tableicon" src="static/images/weathericons/006-snowy.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '25': %}
+                        <img class="tableicon" src="static/images/weathericons/031-snowflake.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '26': %}
+                        <img class="tableicon" src="static/images/weathericons/031-snowflake.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '27': %}
+                        <img class="tableicon" src="static/images/weathericons/031-snowflake.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '28': %}
+                        <img class="tableicon" src="static/images/weathericons/020-storm-3.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '29': %}
+                        <img class="tableicon" src="static/images/weathericons/036-storm-4.svg">
+                        {% endif %}
+                        
+                        {% if line.get("W") == '30': %}
+                        <img class="tableicon" src="static/images/weathericons/008-storm.svg">
+                        {% endif %}
+                        
+                    </td>
+                    <td class="hideme">{{ line.get("S")}}mph</td>
+                    
+                        {% if line.get("G")|int() >= 30: %}
+                            <td class="alert">{{ line.get("G")}}mph</td>
+                        {% else: %}
+                            <td>{{ line.get("G")}}mph</td>
+                            {% endif %}
+                    </td>
+                    <td class="hideme">{{ line.get("D") }}</td>
+                    <td class="hideme">{% if line.get("V") == "UN" %}
+                        Unknown
+                        {% endif %}
+                        {% if line.get("V") == "VP" %}
+                        Very poor
+                        {% endif %}
+                        {% if line.get("V") == "PO" %}
+                        Poor
+                        {% endif %}
+                        {% if line.get("V") == "MO" %}
+                        Moderate
+                        {% endif %}
+                        {% if line.get("V") == "GO" %}
+                        Good
+                        {% endif %}
+                        {% if line.get("V") == "VG" %}
+                        Very good
+                        {% endif %}
+                        {% if line.get("V") == "EX" %}
+                        Excellent
+                        {% endif %}
+                    </td>
+                </tr>
+
+            {% endfor %}
+            {% endfor %}
+
+        
+            
+            
+        </table>
+    </div>
+
+{% endblock %}
