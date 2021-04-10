@@ -55,6 +55,7 @@ body {
 .griditem {
     opacity: 0.8;
     border-radius: 10px;
+    overflow-y: hidden;
 }
 
 .selectablegriditem:hover {
